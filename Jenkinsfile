@@ -21,6 +21,9 @@ pipeline {
         }
         success {
             echo 'This will run only if successful'
+            mail to: 'daryl.fortney@keysight.com',
+              subject: "Localhost Jenkins SUCCESS",
+              body: "Woot!"
         }
         failure {
             echo 'This will run only if failed'
