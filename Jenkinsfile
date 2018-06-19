@@ -1,12 +1,20 @@
 pipeline {
     agent any
-    stages {
+    
+	environment {
+        DISABLE_AUTH = 'true'
+        DB_ENGINE    = 'sqlite'
+    }
+	
+	stages {
         stage('build') {
             steps {
                 bat 'python --version'
+                bat 'env'
             }
         }
     }
+	
 	post {
         always {
             echo 'This will always run'
